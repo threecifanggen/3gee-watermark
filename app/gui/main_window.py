@@ -6,6 +6,7 @@ import sys
 
 from .add_tool import AddTool
 from .decipher_tool import DecipherTool
+from .about_dialog import AboutDialog
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -31,12 +32,18 @@ class MainWindow(QtWidgets.QMainWindow):
         file_menu.addAction(decipher_tool_button)
 
         infoMenu = menu.addMenu("&About")
+        about_button = QtGui.QAction("关于本软件", self)
+        about_button.triggered.connect(self.loadAboutDialog)
+        infoMenu.addAction(about_button)
 
-        
-        
+
 
     def loadAddTool(self):
         self.setCentralWidget(AddTool())
 
     def loadDecipherTool(self):
         self.setCentralWidget(DecipherTool())
+
+    def loadAboutDialog(self):
+        self.about_dialog = AboutDialog()
+        self.about_dialog.show()

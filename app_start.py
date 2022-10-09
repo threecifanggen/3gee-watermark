@@ -8,6 +8,6 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     # app.setWindowIcon(QtGui.QIcon('hand.ico'))
     w = MainWindow()
-    w.resize(360, 200)
+    w.setFixedSize(360, 200)
     w.show()
     app.exec()
